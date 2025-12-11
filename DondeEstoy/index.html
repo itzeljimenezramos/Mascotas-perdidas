@@ -1,0 +1,117 @@
+<!--<?php
+   include 'conexion.php';
+   session_start();
+if(!isset($_SESSION['usuario'])){
+	echo'
+		<script>
+			alert("Debes iniciar sesión");
+            window.location = "login.php";
+		</script>
+	';
+	//header("location: login.php");
+	session_destroy();
+	die();
+}
+
+/*if(isset($_SESSION['usuario'])){
+    header("location: index.php");
+
+}*/
+$usuario = $_SESSION['usuario'];
+
+
+    ?>-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GUAU</title>    
+	 <link rel="stylesheet" href="static\css\chat.css">
+    <link rel="stylesheet" href="static\css\home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/estilos.css">
+	  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+	<div id="agrupar">
+    <header class="header">
+            <div class="logo">
+                <img src="img/GUAU_logo.png" alt="Logo de la marca">
+            </div>
+            <nav>
+               <ul class="nav-links">
+                    <li><a href="#">Lo quiero</a></li>
+                    <li><a href="#">Lo tengo</a></li>
+                    <li><a href="#">Adopta una mascota</a></li>
+               </ul>            
+            </nav>
+            <a class="btn" href="#"><button>Cerrar Sesión</button></a>
+		</header>
+		<aside id="columna">
+			<a><blockquote>Lo tengo</blockquote></a>
+			<a><blockquote>Lo quiero</blockquote></a>
+			<a><blockquote>Noticias</blockquote></a>
+		</aside>
+		<aside id="columna2">
+	    </aside>
+		<div id="content">
+            <?php
+                echo $_SESSION['usuario'];
+            ?>
+		</div>
+		    <!-- BOT PREGUNTAS -->
+    <div class="barra-chat">
+        <button id="chat-button" type="button" class="chat-diseño">Preguntame!
+            <i id="chat-icon" style="color: #ffffff;" class="fa fa-fw fa-comments-o"></i>
+        </button>
+
+        <div class="chat-contenido">
+            <div class="alinear-fuente-chat">
+                <!-- CONTENEDOR DE MENSAJES -->
+                <div class="caja-chat">
+                    <div class="alinear-chat">
+                        <!-- MENSAJES -->
+                        <div id="chatbox">
+                            <h5 id="chat-tiempo"></h5>
+                            <p id="iniciobot" class="botText"><span>Loading...</span></p>
+                        </div>
+
+                        <!-- USUARIO INTRODUCE MENSAJES -->
+                        <div class="barra-mensaje-diseño">
+                            <div id="userInput">
+                                <input id="textInput" class="input-box" type="text" name="msg"
+                                    placeholder="Presiona 'Enter' para enviar">
+                                <p></p>
+                            </div>
+
+                            <div class="chat-iconos">
+                                <i id="chat-icono" style="color: crimson;" class="fa fa-fw fa-heart"
+                                    onclick="heartButton()"></i>
+                                <i id="chat-icono" style="color: #333;" class="fa fa-fw fa-send"
+                                    onclick="sendButton()"></i>
+                            </div>
+                        </div>
+
+                        <div id="chat-bar-bottom">
+                            <p></p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="static\java\chat.js"></script>
+<script src="static/java/responses.js"></script>
+	</div>
+</body>
+</html>
